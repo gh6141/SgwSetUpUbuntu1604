@@ -19,7 +19,7 @@ cp excel_path_linux.txt $webinf/excel_path.txt
 cp opath_linux.txt $webinf/opath.txt
 cp web_linux.xml $webinf/web.xml
 #web.xml Mysql ID,PW input***********************************
-echo -n "Mysql root password(a****9):"
+echo -n "Mysql root password:"
 read pwd
 sed -i -e "s/<pass>/$pwd/g" $webinf/web.xml
 chmod -R 755 $tpath

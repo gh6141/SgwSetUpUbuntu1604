@@ -17,7 +17,7 @@ http://javasgw.blogspot.jp/
 ・元のソースの著作権がhg6141@excite.co.jpにあることを明示することを条件に、カスタマイズ、改良、配布はフリーソフトとしてであれば自由にしていただいてけっこうです。その際は、一言連絡お願いします。JAVAの初心者のためDRY原則から、はずれているソースですのでご了承ください。
 
 ●対象OS、ブラウザ
-・Windows7 32bit/64bit、Windows10、WindowsServer2012、Ubuntu等で動作確認しています。
+・Windows7 32bit/64bit、Windows10、WindowsServer2012、Ubuntu16.04等で動作確認しています。
 ・IE11（互換性表示のチェックははずします）、Edge等で動作確認しています。
 
 
@@ -41,13 +41,13 @@ A：Mysql（データベース）にうまくアクセスできてない可能�
 </context-param>
 
 Q2：添付ファイル名が全角だと文字化けがあったり、添付ファイルのダウンロードができない。
-Mysql関連の設定では、Windowsの場合、my.ini　Ubuntuの場合/etc/mysql/my.cnf の設定ファイルを確認します。
-[client]
-default-character-set=utf8　 
-[mysqld]
-character-set-server=utf8
-[mysql]
-default-character-set=utf8
+Mysql関連の設定では、Windowsの場合、my.ini　
+
+ubuntu16.04標準のmysql5.7で
+/etc/mysql/mysql.conf.d/mysqld.cnfの中の[mysqld]に
+character-set-server = utf8mb4
+collation-server = utf8mb4_bin
+の２行を追加します。
 srver.xmlに以下のようにConnectorの要素に　URIEncoding="UTF-8"を追加なっているか確認します。
   <Connector port="8080" protocol="HTTP/1.1"　 connectionTimeout="20000"  redirectPort="8443" URIEncoding="UTF-8" />
 
