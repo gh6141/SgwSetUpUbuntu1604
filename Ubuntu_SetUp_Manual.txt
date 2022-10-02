@@ -1,6 +1,11 @@
 SGWグループウエア　Ubuntuへのインストールマニュアル SgwSetup2022_10
 
 ※Ubuntu16.04でセットアップ
+※LAMPをインストールして、mysqlはその環境を利用したほうがよい
+※データベースskt作成とskt.sqlからのデータ初期化は手動で行う
+ #mysql -u root -p -e "create database skt;"
+ #mysql -u root -p skt < skt.sql  
+※SGW.warを使ってwebappsへコピーする
 
 (1)ネットワークの設定
 入力した内容が保存できないことがあります。そのときは、少し時間をおいてから再度
