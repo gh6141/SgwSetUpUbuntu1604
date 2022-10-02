@@ -1,0 +1,32 @@
+/var/lib/tomcat6/webapps/SGW   WEBroot
+
+/etc/tomcat6/Catalina/localhostに
+tenpu.xmlというファイルを作成した.中身は以下のとおり
+<?xml version="1.0" encoding="UTF-8"?>
+<Context path="/tenpu" 
+	docBase="/media/kyoyu/tenpu" 
+	antiResourceLocking="false" privileged="true" />
+
+
+SGWでの設定では
+/media/kyoyu/tenpu/（サーバから見た場所）
+../tenpu/(userから見た場所）
+
+
+予定表は
+/media/kyoyu/tenpu/H24yotei.xlsx
+正規表現は
+.*(\,日|\,月|\,火|\,水|\,木|\,金|\,土).*
+エクセルで表示したい項目が、何列目かに対応するように、以下の形式でデータを作成
+,,,,,,,,[全体],[公車],,,,,,,,,,,,[出張],,,,,,,,,,[日番],[日番],[],[],,,,,,,,,,
+
+
+ex.自宅では
+conf/server.xmlを
+<Context path="/SGW/HomeICT" reloadable="true" 
+docBase="\\192.168.1.1\HomeICT" workDir="D:\My 
+Documents\TOCDR\eclipse\workspace\SGW\work" />
+として
+
+SGWのユーザーからみた　場所を　HomeICT/ としたらOK
+/HomeICT/だとだめだった 

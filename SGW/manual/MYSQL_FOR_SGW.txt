@@ -1,0 +1,29 @@
+Mysql ではsktというデータベースを以下のように作成 <table name>
+<groupname> id name member(text)
+<kairan> id name title msg(text) date user hyoji(text) tenpu
+<kairanlog> id kairanid shokuinid kidoku date
+<keijiban> id name msg(text) kikan_s kikan_e title tenpu(text) user userid
+<shokuin> id name pass user HostName mail pop3 mailpass renraku_ad haisin_ad
+注意！！！：idはすべてautoincrementにしないとだめ
+(text)は文字数制限なし　他は、適当な文字数のvchar
+
+
+web.xmlに、MYSQLのIDとパスワードを設定
+<context-param>
+	<param-name>mysqluser</param-name>
+	<param-value>root</param-value>
+</context-param>
+<context-param>
+	<param-name>mysqlpass</param-name>
+	<param-value>pass</param-value>
+</context-param>
+
+
+
+/etc/my.cnf の設定ファイルを変更します。
+クライアントであるmysql側の設定は良いのですが、サーバー側はmysql5.5から表記が変わったようです。新しい書き方は
+[mysqld]
+character-set-server=utf8
+[mysql]
+default-character-set=utf8
+
