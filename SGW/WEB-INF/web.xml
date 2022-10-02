@@ -1,0 +1,322 @@
+﻿<?xml version="1.0" encoding="ISO-8859-1"?>
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee
+   http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
+	version="2.4">
+
+	<context-param>
+	<param-name>master_tenpu</param-name>
+	<param-value>/tenpu/</param-value>
+</context-param>
+
+
+
+<context-param>
+	<param-name>hostname</param-name>
+	<param-value>localhost</param-value>
+</context-param>
+
+<context-param>
+	<param-name>master_hostname</param-name>
+	<param-value>localhost</param-value>
+</context-param>
+
+<context-param>
+	<param-name>mysqluser</param-name>
+	<param-value>root</param-value>
+</context-param>
+<context-param>
+	<param-name>mysqlpass</param-name>
+	<param-value>pass</param-value>
+</context-param>
+
+
+<filter>
+   <filter-name>ExpiresFilter</filter-name>
+   <filter-class>org.apache.catalina.filters.ExpiresFilter</filter-class>
+   <init-param>
+      <param-name>ExpiresByType text/css</param-name> <!--cssファイルの設定-->
+      <param-value>access plus 10 days</param-value> <!--仮に10分間キャッシュ有効-->
+   </init-param>
+   <init-param>
+      <param-name>ExpiresByType application/javascript</param-name> <!--Javascriptファイルの設定-->
+      <param-value>access plus 10 days</param-value> <!--仮に10時間キャッシュ有効-->
+   </init-param>
+</filter>
+
+<filter-mapping>
+   <filter-name>ExpiresFilter</filter-name>
+   <url-pattern>/*</url-pattern>
+   <dispatcher>REQUEST</dispatcher>
+</filter-mapping>
+
+
+
+<mime-mapping>
+ <extension>xls</extension>
+ <mime-type>application/vnd.ms-excel</mime-type>
+</mime-mapping>
+
+	<servlet>
+		<servlet-name>Login</servlet-name>
+		<servlet-class>Login</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Login</servlet-name>
+		<url-pattern>/Login</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>LoginCheck</servlet-name>
+		<servlet-class>LoginCheck</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>LoginCheck</servlet-name>
+		<url-pattern>/LoginCheck</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>Logout</servlet-name>
+		<servlet-class>Logout1</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Logout</servlet-name>
+		<url-pattern>/Logout1</url-pattern>
+	</servlet-mapping>
+
+
+
+
+	<servlet>
+		<servlet-name>RequestServ</servlet-name>
+		<servlet-class>RequestServ</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>RequestServ</servlet-name>
+		<url-pattern>/RequestServ</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>RequestServ_o</servlet-name>
+		<servlet-class>RequestServ_osirase</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>RequestServ_o</servlet-name>
+		<url-pattern>/RequestServ_osirase</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>RequestServ_k</servlet-name>
+		<servlet-class>RequestServ_kairan</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>RequestServ_k</servlet-name>
+		<url-pattern>/RequestServ_kairan</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>RequestServ_g</servlet-name>
+		<servlet-class>RequestServ_group</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>RequestServ_g</servlet-name>
+		<url-pattern>/RequestServ_group</url-pattern>
+	</servlet-mapping>
+
+    <servlet>
+		<servlet-name>dengonban</servlet-name>
+		<servlet-class>dengonban</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>dengonban</servlet-name>
+		<url-pattern>/dengonban</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>rename</servlet-name>
+		<servlet-class>rename</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>rename</servlet-name>
+		<url-pattern>/rename</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>fileupload</servlet-name>
+		<servlet-class>fileupload</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>fileupload</servlet-name>
+		<url-pattern>/fileupload</url-pattern>
+	</servlet-mapping>
+
+
+
+	<servlet>
+		<servlet-name>sette_p</servlet-name>
+		<servlet-class>sette_p</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>sette_p</servlet-name>
+		<url-pattern>/sette_p</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>poi</servlet-name>
+		<servlet-class>poi</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>poi</servlet-name>
+		<url-pattern>/poi</url-pattern>
+	</servlet-mapping>
+
+<servlet>
+		<servlet-name>poi2</servlet-name>
+		<servlet-class>poi2</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>poi2</servlet-name>
+		<url-pattern>/poi2</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>kensu</servlet-name>
+		<servlet-class>kairan_kensu</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>kensu</servlet-name>
+		<url-pattern>/kairan_kensu</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>kensuh</servlet-name>
+		<servlet-class>henko_kensu</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>kensuh</servlet-name>
+		<url-pattern>/henko_kensu</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>filter_moji</servlet-name>
+		<servlet-class>filter_moji</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>filter_moji</servlet-name>
+		<url-pattern>/filter_moji</url-pattern>
+	</servlet-mapping>
+
+<servlet>
+		<servlet-name>maillist</servlet-name>
+		<servlet-class>maillist</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>maillist</servlet-name>
+		<url-pattern>/maillist</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>henkolist</servlet-name>
+		<servlet-class>henkolist</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>henkolist</servlet-name>
+		<url-pattern>/henkolist</url-pattern>
+	</servlet-mapping>
+
+<servlet>
+			<servlet-name>mail_set</servlet-name>
+		<servlet-class>mail_set</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>mail_set</servlet-name>
+		<url-pattern>/mail_set</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+			<servlet-name>pass_set</servlet-name>
+		<servlet-class>pass_set</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>pass_set</servlet-name>
+		<url-pattern>/pass_set</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+			<servlet-name>haisin_mail</servlet-name>
+		<servlet-class>haisin_mail</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>haisin_mail</servlet-name>
+		<url-pattern>/haisin_mail</url-pattern>
+	</servlet-mapping>
+
+		<servlet>
+			<servlet-name>weather</servlet-name>
+		<servlet-class>weather</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>weather</servlet-name>
+		<url-pattern>/weather</url-pattern>
+	</servlet-mapping>
+
+
+
+<servlet>
+		<servlet-name>RequestServ_henko</servlet-name>
+		<servlet-class>RequestServ_henko</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>RequestServ_henko</servlet-name>
+		<url-pattern>/RequestServ_henko</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>RequestServ_link</servlet-name>
+		<servlet-class>RequestServ_link</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>RequestServ_link</servlet-name>
+		<url-pattern>/RequestServ_link</url-pattern>
+	</servlet-mapping>
+
+<servlet>
+  <servlet-name>UploadImage</servlet-name>
+  <servlet-class>UploadImage</servlet-class>
+</servlet>
+<servlet-mapping>
+  <servlet-name>UploadImage</servlet-name>
+  <url-pattern>/UploadImage</url-pattern>
+</servlet-mapping>
+
+
+
+<servlet>
+<servlet-name>RS_UpImage</servlet-name>
+        <servlet-class>RS_UpImage</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RS_UpImage</servlet-name>
+        <url-pattern>/RS_UpImage</url-pattern>
+    </servlet-mapping>
+
+<servlet>
+<servlet-name>editoption</servlet-name>
+        <servlet-class>editoption</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>editoption</servlet-name>
+        <url-pattern>/editoption</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+<servlet-name>FileDownloadServlet</servlet-name>
+        <servlet-class>FileDownloadServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>FileDownloadServlet</servlet-name>
+        <url-pattern>/FileDownloadServlet</url-pattern>
+    </servlet-mapping>
+
+</web-app>

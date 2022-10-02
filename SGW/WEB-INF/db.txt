@@ -1,0 +1,3 @@
+jdbc:mysql://localhost/skt
+skt
+pass
